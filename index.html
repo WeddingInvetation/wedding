@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+</head>
+<body>
+    <h1>Wedding Invitation</h1>
+
+    <img src="images/couple-image.jpg" alt="Couple Image">
+
+    <p>
+        Dear Friends and Family,
+        <br><br>
+        We are excited to invite you to our wedding celebration!
+        <br><br>
+        <strong>Date:</strong> [Date]<br>
+        <strong>Time:</strong> [Time]<br>
+        <strong>Location:</strong> [Venue]
+        <br><br>
+        Please join us for a day filled with love, joy, and celebration.
+        <br><br>
+        RSVP by [RSVP Deadline].
+        <br><br>
+        <div id="countdown"></div>
+        <br><br>
+        Looking forward to sharing this special day with you!
+        <br><br>
+        With love,
+        <br>
+        [Your Names]
+    </p>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("[Date] [Time]").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+            // Get the current date and time
+            var now = new Date().getTime();
+
+            // Calculate the remaining time
+            var distance = countDownDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "The wedding has begun!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
